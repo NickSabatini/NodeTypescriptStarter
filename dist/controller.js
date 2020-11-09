@@ -2,7 +2,31 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 class Controller {
     getHello(req, res) {
-        res.send("Hello World");
+        const MovieDB = require('node-themoviedb');
+        // ES6 Style
+        // import MovieDB from 'node-themoviedb';
+        const mdb = new MovieDB("19c64f4f9f25a75eb15fb7d09a07f1a4");
+
+        (async () => {
+            try {
+                const args = {
+                    pathParameters: {
+                        movie_id: 384018,
+                    },
+                };
+                const movie = await mdb.movie.getDetails(args);
+                res.send(movie.data.title);
+                /*
+                  {
+                    data: Object. Parsed json data of response
+                    headers: Object. Headers of response
+                  }
+                */
+            } catch (error) {
+                console.error(error);
+            }
+        })();
+        
     }
     postHello(req, res) {
         res.send(req.body);
