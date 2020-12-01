@@ -7,10 +7,10 @@ import { HttpClient } from '@angular/common/http';
 })
 export class ProjectsService {
 
-  private path="http://localhost:3000/api/projects/"
+  private path="https://api.themoviedb.org/3/search/movie?api_key=19c64f4f9f25a75eb15fb7d09a07f1a4&query=spongebob"
   constructor(private http:HttpClient) { }
 
   getProjects(): Observable<any>{
-    return this.http.get(this.path+'semesters');
+    return this.http.get(this.path);
   }
 }
