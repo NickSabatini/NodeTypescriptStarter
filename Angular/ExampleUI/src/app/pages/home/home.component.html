@@ -1,9 +1,19 @@
+<!DOCTYPE html>
+<html>
+<body>
 <p>home works!</p>
+<div>
+    <input class="form-control" type="text" aria-label="Search" id="searchBar" value="Search">
+    <input type="submit" value="Submit">
+</div>
 <div *ngIf='movies.length>0'>
 <ul>
     <li *ngFor='let item of movies'>
         {{item}}
     </li>
 </ul>
+
 </div>
 <div *ngIf='movies.length==0'>No movies found</div>
+</body>
+</html>
