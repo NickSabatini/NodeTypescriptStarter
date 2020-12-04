@@ -32,8 +32,7 @@ export class HomeComponent implements OnInit {
   }
 
   onSubmit(data) {
-    this.query = data;
-    console.log(data);
+    this.query = data.search;
     this.movies = [];
     this.projSvc.getProjects(this.query).subscribe(result => {
       let length = result.results.length;
@@ -41,7 +40,7 @@ export class HomeComponent implements OnInit {
         this.movies.push(result.results[i].title);
       }
     })
-    console.log(this.movies);
+    //console.log(this.movies);
   }
 
 
