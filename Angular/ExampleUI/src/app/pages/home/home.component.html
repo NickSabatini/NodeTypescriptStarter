@@ -2,10 +2,12 @@
 <html>
 <body>
 <p>home works!</p>
-<div>
-    <input class="form-control" type="text" aria-label="Search" id="searchBar" value="Search">
-    <input type="submit" value="Submit">
-</div>
+<form [formGroup]="myForm" (ngSubmit)="onSubmit(myForm.value)">
+    <div class="md-form active-pink active-pink-2 mb-3">
+      <input class="form-control" type="search" id="search1"  formControlName="search" mdbInput>
+      <button type="submit">Search</button>
+    </div>
+  </form>
 <div *ngIf='movies.length>0'>
 <ul>
     <li *ngFor='let item of movies'>

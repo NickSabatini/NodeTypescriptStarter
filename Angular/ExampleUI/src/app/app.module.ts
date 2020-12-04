@@ -9,6 +9,7 @@ import { RegisterComponent } from './pages/register/register.component';
 import { AddprojectComponent } from './pages/addproject/addproject.component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
+import { FormGroup, FormControl } from '@angular/forms';
 import { TokenInterceptorService } from './services/token-interceptor.service';
 
 @NgModule({
