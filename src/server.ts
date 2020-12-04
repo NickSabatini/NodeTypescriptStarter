@@ -1,7 +1,8 @@
 import bodyParser from "body-parser";
 import express from "express";
 
-import {ApiRouter} from "./router";
+import {SecurityRouter} from "./security/securityRouter";
+import {UserRouter} from "./user/userRouter";
 
 class Application {
     public app: express.Application;
@@ -35,7 +36,8 @@ class Application {
     }
     // setup routes for the express server
     public buildRoutes(): void {
-        this.app.use("/api", new ApiRouter().getRouter());
+        this.app.use("/api", new UserRouter().getRouter());
+        this.app.use("/", new SecurityRouter().getRouter());
     }
 }
 new Application().start();

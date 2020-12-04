@@ -1,9 +1,9 @@
 import express from "express";
-import {Controller} from "./controller";
+import {UserController} from "./userController";
 
-export class ApiRouter {
+export class UserRouter {
     private router: express.Router = express.Router();
-    private controller: Controller = new Controller();
+    private controller: UserController = new UserController();
 
     // Creates the routes for this router and returns a populated router object
     public getRouter(): express.Router {
