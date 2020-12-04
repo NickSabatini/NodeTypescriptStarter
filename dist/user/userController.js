@@ -1,8 +1,8 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-class Controller {
+class UserController {
     getHello(req, res) {
-        res.send("Hello");
+        res.send("Hello World");
     }
     postHello(req, res) {
         res.send(req.body);
@@ -38,5 +38,5 @@ class Controller {
         res.send(req.params);
     }
 }
-exports.Controller = Controller;
-//# sourceMappingURL=controller.js.map
+exports.UserController = UserController;
+//# sourceMappingURL=userController.js.map

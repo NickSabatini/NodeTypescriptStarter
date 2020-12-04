@@ -1,6 +1,6 @@
 import express from "express";
 
-export class Controller {
+export class UserController {
     public getHello(req: express.Request, res: express.Response): void {
         res.send("Hello World");
     }
