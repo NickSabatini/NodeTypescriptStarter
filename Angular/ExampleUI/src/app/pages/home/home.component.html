@@ -10,13 +10,10 @@
   </form>
 <div *ngIf='movies.length>0'>
 <ul>
-    <li *ngFor='let links of posters'>
-        <img src={{links}} alt="Italian Trulli">
+    <li *ngFor='let whole of combined'>
+        <img src={{whole.poster}} alt="Italian Trulli">
+        {{whole.movie}}
     </li>
-    <li *ngFor='let item of movies'>
-        {{item}}
-    </li>
-    
 </ul>
 
 </div>

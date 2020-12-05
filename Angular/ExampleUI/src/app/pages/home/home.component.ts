@@ -16,6 +16,7 @@ export class HomeComponent implements OnInit {
   });
   movies = [];
   posters = [];
+  combined  = [];
   urlStart = "https://image.tmdb.org/t/p/w500/";
   query = "a";
   constructor(private projSvc: ProjectsService) {
@@ -30,6 +31,7 @@ export class HomeComponent implements OnInit {
       for (let i = 0; i < length; i++) {
         this.movies.push(result.results[i].title);
         this.posters.push(this.urlStart + result.results[i].poster_path);
+        this.combined.push({movie: result.results[i].title, poster: this.urlStart + result.results[i].poster_path})
       }
     })
 
@@ -42,12 +44,14 @@ export class HomeComponent implements OnInit {
     this.query = data.search;
     this.movies = [];
     this.posters = [];
+    this.combined = [];
     this.projSvc.getProjects(this.query).subscribe(result => {
       let length = result.results.length;
       for (let i = 0; i < length; i++) {
         this.movies.push(result.results[i].title);
         //console.log(this.urlStart + result.results[i].poster_path)
         this.posters.push(this.urlStart + result.results[i].poster_path);
+        this.combined.push({movie: result.results[i].title, poster: this.urlStart + result.results[i].poster_path})
       }
     })
     //console.log(this.movies);
