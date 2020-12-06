@@ -15,6 +15,7 @@ export class HomeComponent implements OnInit {
     search: new FormControl('')
   });
   movies = [];
+  overviews = [];
   posters = [];
   combined  = [];
   urlStart = "https://image.tmdb.org/t/p/w500/";
@@ -30,8 +31,9 @@ export class HomeComponent implements OnInit {
       let length = result.results.length;
       for (let i = 0; i < length; i++) {
         this.movies.push(result.results[i].title);
+        this.overviews.push(result.results[i].overview);
         this.posters.push(this.urlStart + result.results[i].poster_path);
-        this.combined.push({movie: result.results[i].title, poster: this.urlStart + result.results[i].poster_path})
+        this.combined.push({movie: result.results[i].title, poster: this.urlStart + result.results[i].poster_path, overviews: result.results[i].overview})
       }
     })
 
@@ -50,8 +52,9 @@ export class HomeComponent implements OnInit {
       for (let i = 0; i < length; i++) {
         this.movies.push(result.results[i].title);
         //console.log(this.urlStart + result.results[i].poster_path)
+        this.overviews.push(result.results[i].overview);
         this.posters.push(this.urlStart + result.results[i].poster_path);
-        this.combined.push({movie: result.results[i].title, poster: this.urlStart + result.results[i].poster_path})
+        this.combined.push({movie: result.results[i].title, poster: this.urlStart + result.results[i].poster_path, overviews: result.results[i].overview})
       }
     })
     //console.log(this.movies);
