@@ -1,22 +1,19 @@
 #aForm {
-    display:inline;
-    margin:0;
-    padding:0;
+   display: inline;
+   margin: 0;
+   padding: 0;
  }
  
- ul li {
-    display: inline-block;
-    vertical-align: top;
+ul li {
+   display: inline-block;
+   vertical-align: top;
 }
 
- img{
-    width: 10%;
-    height: auto;
- }
-
- .images{
+.images{
    width: 27vh;
    height: 40vh;
+   border-radius: 2vh;
+   //z-index: 2;
  }
 
 .overlay{
@@ -26,16 +23,25 @@
    left: 0;
    right: 0;
    height: 100%;
-   width: 50%;
+   width: 100%;
    opacity: 0;
    transition: .5s ease;
    background-color: white;
+   padding: 2vh;
+   margin: 2vh;
+   //z-index: 1;
 }
 
 .container:hover .overlay {
-   opacity: 1;
- }
- .container {
+   opacity: 0.95;
+}
+
+.container {
    position: relative;
-   width: 50%;
- } 
+   padding: 2vh;
+   margin: 2vh;
+   display: inline-block;
+   width: 27vh;
+   border-radius: 2vh;
+   /*vertical-align: top;*/
+} 
