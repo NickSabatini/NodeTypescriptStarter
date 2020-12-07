@@ -11,13 +11,14 @@
 <div *ngIf='movies.length>0'>
 <ul>
     <li *ngFor='let whole of combined'>
+      {{whole.movie}}
+
       <div class="container">
         <img class = "images" src={{whole.poster}} alt="Italian Trulli">
         <div class = "overlay">
           <div class="text">{{whole.overviews}}></div>
         </div>
       </div>
-        {{whole.movie}}
     </li>
 </ul>
 

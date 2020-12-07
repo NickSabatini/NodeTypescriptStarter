@@ -14,7 +14,8 @@
  }
 
  .images{
-   width: 100%
+   width: 50%;
+   height: 50%;
  }
 
 .overlay{
@@ -24,10 +25,10 @@
    left: 0;
    right: 0;
    height: 100%;
-   width: 100%;
+   width: 50%;
    opacity: 0;
    transition: .5s ease;
-   background-color: #008CBA;
+   background-color: white;
 }
 
 .container:hover .overlay {
