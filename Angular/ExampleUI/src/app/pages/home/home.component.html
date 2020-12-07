@@ -30,7 +30,7 @@
           <img class="images" src={{whole.poster}} alt="No Poster Available">
           <div id="title">{{whole.movie}}</div>
           <div class="overlay">
-            <button type="button" onclick="on()">Description</button>
+            <button  (click)="on()" Description></button>
             <div id="description">
               {{whole.overviews}}<br><br>
             </div>
@@ -45,16 +45,9 @@
   </div>
   <div *ngIf='movies.length==0'>No movies found</div>
 
-  <script>
-    function on() {
-      document.getElementById("description").style.display = "block";
-      console.log("HELLO");
-    }
+  
 
-    function off() {
-      document.getElementById("description").style.display = "none";
-    }
-  </script>
+  
 </body>
 
 </html>

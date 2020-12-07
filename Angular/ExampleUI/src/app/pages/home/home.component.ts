@@ -103,4 +103,12 @@ export class HomeComponent implements OnInit {
     })
 
   }
+  public on() {
+    console.log("HELLO");
+
+    document.getElementById("description").style.display = "block";
+    console.log("HELLO");
+  }
 }
+
+
