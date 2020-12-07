@@ -36,11 +36,13 @@ export class UserController {
     }
 
     public getFavorite(req: express.Request, res: express.Response): void {
-        UserController.db.getRecords(UserController.favoritesTable, { email: req.body.email })
+        console.log("test");
+        UserController.db.getRecords(UserController.favoritesTable, { email: req.get("email") })
             .then((userRecords: any) => {
                 if (userRecords) { return res.status(200).send(userRecords); }
             }).catch((reason: any) => res.sendStatus(500).end());
     }
+
     public postFavorite(req: express.Request, res: express.Response) {
         const user: FavoriteModel = new FavoriteModel(req.body.email, req.body.title);
         UserController.db.getOneRecord(UserController.favoritesTable, { email: req.body.email, title: req.body.title })
@@ -50,6 +52,7 @@ export class UserController {
                     .catch((reason: any) => res.sendStatus(500).end());
             }).catch((reason: any) => res.sendStatus(500).end());
     }
+
     public deleteFavorite(req: express.Request, res: express.Response) {
         const user: FavoriteModel = new FavoriteModel(req.body.email, req.body.title);
         UserController.db.getOneRecord(UserController.favoritesTable, { email: req.body.email, title: req.body.title })

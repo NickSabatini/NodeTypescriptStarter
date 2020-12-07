@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, ReplaySubject, throwError } from 'rxjs';
 import { map, catchError } from 'rxjs/operators';
 
@@ -7,9 +7,10 @@ import { map, catchError } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class AuthService {
-  private path='http://localhost:3000/api/security/'
+  private path='http://127.0.0.1:3000/'
   private _token:string=null;
   CurrentUser: ReplaySubject<string>=new ReplaySubject<string>();
+  Favorites: any;
 
   get token():string{
     if (this._token==null){

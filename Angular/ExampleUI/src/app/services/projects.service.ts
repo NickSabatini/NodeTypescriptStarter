@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -19,5 +19,20 @@ export class ProjectsService {
 
   getServices(ids: any): Observable<any>{
     return this.http.get(this.firstHalf + ids + this.secondHalf);
+  }
+
+  //authorize calls the underlying api to see if the current token is valid (if it exists) and clears it if it is not.
+  //returns nothing, but updates token if it is invalid
+  getFavorites(email: string):Observable<any>{
+    const headerDict = {
+      'email': email
+    };
+
+    const requestOptions = {                                                                                                                                                                                 
+      headers: new HttpHeaders(headerDict), 
+    };
+
+    //console.log("wuh");
+    return this.http.get('http://localhost:3000/api/favorites', requestOptions);
   }
 }
