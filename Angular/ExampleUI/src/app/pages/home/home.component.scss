@@ -29,6 +29,7 @@ ul li {
    top: 7%;
    right: 1%;
    text-align: center;
+   color: black;
 }
 
 .overlay {
@@ -49,7 +50,7 @@ ul li {
 }
 
 .container:hover .overlay {
-   opacity: 0.95;
+   opacity: 0.93;
 }
 
 .container {
@@ -88,10 +89,10 @@ ul li {
 
 #button {
    position: relative;
-   top: 12%;
+   top: 10%;
    flex: 1;
    margin: 2vh;
-   margin-bottom: 4vh;
+   margin-bottom: 3vh;
    padding: 1vh 2vh;
    border-radius: 999px;
    border: 5px solid #284cff;
