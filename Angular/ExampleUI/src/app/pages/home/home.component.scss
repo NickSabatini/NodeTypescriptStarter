@@ -3,9 +3,10 @@
     margin:0;
     padding:0;
  }
-
- ul li{
-    flex: left;
+ 
+ ul li {
+    display: inline-block;
+    vertical-align: top;
 }
 
  img{
@@ -14,8 +15,8 @@
  }
 
  .images{
-   width: 50%;
-   height: 50%;
+   width: 27vh;
+   height: 40vh;
  }
 
 .overlay{
