@@ -44,8 +44,8 @@ export class UserController {
     }
 
     public postFavorite(req: express.Request, res: express.Response) {
-        const user: FavoriteModel = new FavoriteModel(req.body.email, req.body.title);
-        UserController.db.getOneRecord(UserController.favoritesTable, { email: req.body.email, title: req.body.title })
+        const user: FavoriteModel = new FavoriteModel(req.body.email, req.body.id);
+        UserController.db.getOneRecord(UserController.favoritesTable, { email: req.body.email, id: req.body.id })
             .then((userRecord: any) => {
                 if (userRecord) { return res.status(400).send({ fn: "postFavorite", status: "failure", data: "Favorite already exists for user" }).end(); }
                 UserController.db.addRecord(UserController.favoritesTable, user.toObject()).then((result: boolean) => res.send({ fn: "postFavorite", status: "success" }).end())
@@ -54,8 +54,8 @@ export class UserController {
     }
 
     public deleteFavorite(req: express.Request, res: express.Response) {
-        const user: FavoriteModel = new FavoriteModel(req.body.email, req.body.title);
-        UserController.db.getOneRecord(UserController.favoritesTable, { email: req.body.email, title: req.body.title })
+        const user: FavoriteModel = new FavoriteModel(req.body.email, req.body.id);
+        UserController.db.getOneRecord(UserController.favoritesTable, { email: req.body.email, id: req.body.id })
             .then((userRecord: any) => {
                 if (!userRecord) { return res.status(400).send({ fn: "deleteFavorite", status: "failure", data: "Favorite does not exist" }).end(); }
                 UserController.db.deleteRecord(UserController.favoritesTable, user.toObject()).then((result: boolean) => res.send({ fn: "deleteFavorite", status: "success" }).end())
