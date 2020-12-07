@@ -26,7 +26,7 @@ export class HomeComponent implements OnInit {
   constructor(private projSvc: ProjectsService) {
     let count = 0;
 
-    projSvc.addFavorites("user", "459202");
+    projSvc.addFavorites("user", "1374");
 
     projSvc.getFavorites("user").subscribe(result => {
       count = result.length;
