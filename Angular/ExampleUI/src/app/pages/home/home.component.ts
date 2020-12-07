@@ -10,6 +10,7 @@ import { ProjectsService } from 'src/app/services/projects.service';
 
 
 export class HomeComponent implements OnInit {
+  buttonClicked = false;
   myForm = new FormGroup({
     search: new FormControl('')
   });
@@ -103,12 +104,15 @@ export class HomeComponent implements OnInit {
     })
 
   }
-  public showOverview() {
-    document.getElementById("overview").style.display = "block";
+
+  showOverview() {
+    //document.getElementById("overview").style.display = "block";
+    this.buttonClicked = true;
   }
 
-  public hideOverview() {
-    document.getElementById("overview").style.display = "none";
+  hideOverview() {
+    //document.getElementById("overview").style.display = "none";
+    this.buttonClicked = false;
   }
 }
 

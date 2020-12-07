@@ -13,7 +13,7 @@
    margin: 1vh;
 }
 
-ul li {
+ul, li {
    display: inline-block;
    vertical-align: top;
 }
@@ -107,7 +107,7 @@ ul li {
    background-image: url(https://web.archive.org/web/20160312084140im_/http://splatoon.nintendo.com/assets/img/nav-bg-fill-blue.png?1443460871);
    background-repeat: repeat-x;
    background-position: 0 -100%;
-   transition: 1.5s ease;
+   transition: 1.2s ease;
 
    &:hover {
      background-position: 500% 100%;

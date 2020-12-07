@@ -19,14 +19,14 @@
             <div class="services" *ngFor='let servs of whole.Aservices'>
               {{servs}}<br>
             </div>
+            <div id="overview" (click)="hideOverview()" [style.display]="buttonClicked ? 'block' : 'none'" *ngIf='overviews'>
+              {{whole.overviews}}<br><br>
+            </div>
           </div>
         </div>
-        <div id="overview" (click)="hideOverview()">
-          {{whole.overviews}}<br><br>
-        </div>
+        
       </li>
     </ul>
-
   </div>
   <div *ngIf='movies.length==0'>No movies found</div>
 
