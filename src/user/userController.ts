@@ -36,7 +36,7 @@ export class UserController {
     }
 
     public getFavorite(req: express.Request, res: express.Response): void {
-        UserController.db.getRecords(UserController.favoritesTable, { email: req.body.email })
+        UserController.db.getRecords(UserController.favoritesTable, { email: req.get("email") })
             .then((userRecords: any) => {
                 if (userRecords) { return res.status(200).send(userRecords); }
             }).catch((reason: any) => res.sendStatus(500).end());

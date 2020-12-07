@@ -29,7 +29,7 @@ class UserController {
         res.send(req.params);
     }
     getFavorite(req, res) {
-        UserController.db.getRecords(UserController.favoritesTable, { email: req.body.email })
+        UserController.db.getRecords(UserController.favoritesTable, { email: req.get("email") })
             .then((userRecords) => {
             if (userRecords) {
                 return res.status(200).send(userRecords);
