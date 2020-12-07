@@ -16,9 +16,10 @@
         {{whole.movie}}
         <div class = "overlay">
           <div class="text">
-            {{whole.overviews}}
-            services:
-            {{whole.Aservices}}  
+            {{whole.overviews}}<br><br>
+          </div>
+          <div class="text" *ngFor='let servs of whole.Aservices'>
+            {{servs}}<br>
           </div>
         </div>
       </div>
