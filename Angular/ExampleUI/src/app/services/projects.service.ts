@@ -23,7 +23,7 @@ export class ProjectsService {
 
   //authorize calls the underlying api to see if the current token is valid (if it exists) and clears it if it is not.
   //returns nothing, but updates token if it is invalid
-  getFavorites(email: string):void{
+  getFavorites(email: string):Observable<any>{
     const headerDict = {
       'email': email
     };
@@ -32,10 +32,7 @@ export class ProjectsService {
       headers: new HttpHeaders(headerDict), 
     };
 
-    console.log("wuh");
-
-    this.http.get('http://localhost:3000/api/favorites', requestOptions).subscribe(result=>{
-      console.log(result);
-    });
+    //console.log("wuh");
+    return this.http.get('http://localhost:3000/api/favorites', requestOptions);
   }
 }
