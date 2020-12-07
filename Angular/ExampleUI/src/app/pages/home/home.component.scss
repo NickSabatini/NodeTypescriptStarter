@@ -68,10 +68,9 @@ ul li {
 }
 
 #description {
-   opacity: 1;
    position: fixed; /* Sit on top of the page content */
    display: none; /* Hidden by default */
-   border: 1vh solid black;
+   //border: 1vh solid black;
    border-radius: 2vh;
    width: 90%;
    height: 80%;
@@ -79,7 +78,9 @@ ul li {
    left: 5%;
    right: 0%;
    bottom: 10%;
-   background-color: rgba(0,0,0,0.5); /* Black background with opacity */
+   padding: 3vh;
+   background-color: rgba(0,0,0,0.94); /* Black background with opacity */
+   color: white;
    z-index: 2; /* Specify a stack order in case you're using a different order for other elements */
    cursor: pointer; /* Add a pointer on hover */
 }
