@@ -2,11 +2,10 @@
 <html>
 
 <body>
-  <p>home works!</p>
-  <form [formGroup]="myForm" (ngSubmit)="onSubmit(myForm.value)">
+  <form [formGroup]="myForm" (ngSubmit)="onSubmit(myForm.value)" class="form">
     <div class="md-form active-pink active-pink-2 mb-3">
-      <input class="form-control" type="search" id="search1" formControlName="search" mdbInput>
-      <button type="submit">Search</button>
+      <input class="form-control" type="search" placeholder="Enter keywords..." formControlName="search" mdbInput>
+      <button type="submit" class="search">Search</button>
     </div>
   </form>
   <div *ngIf='movies.length>0'>
@@ -16,14 +15,14 @@
           <img class="images" src={{whole.poster}} alt="No Poster Available">
           <div id="title">{{whole.movie}}</div>
           <div class="overlay">
-            <button id="button" (click)="on()">Description</button>
-            <div id="description">
-              {{whole.overviews}}<br><br>
-            </div>
+            <button id="button" (click)="showDesc()">Description</button>
             <div class="services" *ngFor='let servs of whole.Aservices'>
               {{servs}}<br>
             </div>
           </div>
+        </div>
+        <div id="description" (click)="hideDesc()">
+          {{whole.overviews}}<br><br>
         </div>
       </li>
     </ul>
