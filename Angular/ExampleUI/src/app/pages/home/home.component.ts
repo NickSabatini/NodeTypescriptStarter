@@ -25,9 +25,6 @@ export class HomeComponent implements OnInit {
 
   constructor(private projSvc: ProjectsService) {
     let count = 0;
-
-    projSvc.addFavorites("user", "1374");
-
     projSvc.getFavorites("user").subscribe(result => {
       count = result.length;
       for(let i = 0; i < result.length; i++){
@@ -89,6 +86,11 @@ export class HomeComponent implements OnInit {
     })
 
     return services;
+  }
+
+  addFavorite(data){
+    //console.log(data);
+    this.projSvc.addFavorites("user", data);
   }
 
 

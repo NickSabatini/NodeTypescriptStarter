@@ -18,6 +18,7 @@
           <div class="text">
             {{whole.overviews}}<br><br>
           </div>
+          <button type="submit" (click)="addFavorite(whole.ids)">add fav</button>
           <div class="text" *ngFor='let servs of whole.Aservices'>
             {{servs}}<br>
           </div>
