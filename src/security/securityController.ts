@@ -36,6 +36,7 @@ export class SecurityController {
                     .catch((reason: any) => res.sendStatus(500).end());
             }).catch((reason: any) => res.sendStatus(500).end());
     }
+
     // authorize - GET
     // this code actually does nothing, but if it is secured at the route level, it will return the email address for the token that
     // was returned.  This is used to verify a token by a client application
