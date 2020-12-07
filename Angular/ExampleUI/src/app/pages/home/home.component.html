@@ -1,32 +1,60 @@
 <!DOCTYPE html>
 <html>
+<style>
+  #description {
+   position: fixed; /* Sit on top of the page content */
+   display: none; /* Hidden by default */
+   width: 100%; /* Full width (cover the whole page) */
+   height: 100%; /* Full height (cover the whole page) */
+   top: 0;
+   left: 0;
+   right: 0;
+   bottom: 0;
+   background-color: rgba(0,0,0,0.5); /* Black background with opacity */
+   z-index: 2; /* Specify a stack order in case you're using a different order for other elements */
+   cursor: pointer; /* Add a pointer on hover */
+}
+</style>
 <body>
-<p>home works!</p>
-<form [formGroup]="myForm" (ngSubmit)="onSubmit(myForm.value)">
+  <p>home works!</p>
+  <form [formGroup]="myForm" (ngSubmit)="onSubmit(myForm.value)">
     <div class="md-form active-pink active-pink-2 mb-3">
-      <input class="form-control" type="search" id="search1"  formControlName="search" mdbInput>
+      <input class="form-control" type="search" id="search1" formControlName="search" mdbInput>
       <button type="submit">Search</button>
     </div>
   </form>
-<div *ngIf='movies.length>0'>
-<ul>
-    <li *ngFor='let whole of combined'>
-      <div class="container">
-        <img class = "images" src={{whole.poster}} alt="No Poster Available">
-        {{whole.movie}}
-        <div class = "overlay">
-          <div class="text">
-            {{whole.overviews}}<br><br>
-          </div>
-          <div class="text" *ngFor='let servs of whole.Aservices'>
-            {{servs}}<br>
+  <div *ngIf='movies.length>0'>
+    <ul>
+      <li *ngFor='let whole of combined'>
+        <div class="container">
+          <img class="images" src={{whole.poster}} alt="No Poster Available">
+          <div id="title">{{whole.movie}}</div>
+          <div class="overlay">
+            <button type="button" onclick="on()">Description</button>
+            <div id="description">
+              {{whole.overviews}}<br><br>
+            </div>
+            <div class="text" *ngFor='let servs of whole.Aservices'>
+              {{servs}}<br>
+            </div>
           </div>
         </div>
-      </div>
-    </li>
-</ul>
+      </li>
+    </ul>
 
-</div>
-<div *ngIf='movies.length==0'>No movies found</div>
+  </div>
+  <div *ngIf='movies.length==0'>No movies found</div>
+
+  <script>
+    function on() {
+      document.getElementById("description").style.display = "block";
+      console.log("HELLO");
+    }
+
+    function off() {
+      document.getElementById("description").style.display = "none";
+    }
+  </script>
 </body>
+
 </html>

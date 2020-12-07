@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ProjectsService } from 'src/app/services/projects.service';
 
-
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -104,7 +103,4 @@ export class HomeComponent implements OnInit {
     })
 
   }
-
-
-
 }

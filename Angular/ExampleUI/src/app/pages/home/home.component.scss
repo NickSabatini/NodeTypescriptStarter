@@ -9,14 +9,18 @@ ul li {
    vertical-align: top;
 }
 
-.images{
+.images {
    width: 27vh;
    height: 40vh;
    border-radius: 2vh;
    //z-index: 2;
- }
+}
 
-.overlay{
+/*.text {
+   font-size: 1.2vh;
+}*/
+
+.overlay {
    position: absolute;
    top: 0;
    bottom: 0;
@@ -29,11 +33,12 @@ ul li {
    background-color: white;
    padding: 2vh;
    margin: 2vh;
+   border-radius: 1.5vh; //2vh;
    //z-index: 1;
 }
 
 .container:hover .overlay {
-   opacity: 0.95;
+   opacity: 0.93;
 }
 
 .container {
@@ -43,5 +48,11 @@ ul li {
    display: inline-block;
    width: 27vh;
    border-radius: 2vh;
-   /*vertical-align: top;*/
-} 
+}
+
+#title {
+   padding-top: 1vh;
+   font-size: 2vh;
+   font-weight: bold;
+}
+
