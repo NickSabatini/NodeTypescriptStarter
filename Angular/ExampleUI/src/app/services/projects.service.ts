@@ -35,4 +35,10 @@ export class ProjectsService {
     //console.log("wuh");
     return this.http.get('http://localhost:3000/api/favorites', requestOptions);
   }
+
+  getDetails(id: any):Observable<any>{
+    let one = "https://api.themoviedb.org/3/movie/";
+    let two = "?api_key=19c64f4f9f25a75eb15fb7d09a07f1a4&language=en-US";
+    return this.http.get(one+id+two);
+  }
 }
