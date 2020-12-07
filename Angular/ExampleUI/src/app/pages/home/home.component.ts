@@ -90,7 +90,18 @@ export class HomeComponent implements OnInit {
 
   addFavorite(data){
     //console.log(data);
-    this.projSvc.addFavorites("user", data);
+    let found = false;
+    for(let i = 0; i < this.favID.length; i++){
+      if (this.favID[i] == data){
+        found = true;
+      }
+    }
+    if(found == false){
+      this.favID.push(data);
+      this.projSvc.addFavorites("user", data);
+    }else{
+      console.log("already added");
+    }
   }
 
 
