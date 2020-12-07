@@ -25,6 +25,8 @@ export class HomeComponent implements OnInit {
 
   constructor(private projSvc: ProjectsService) {
 
+    projSvc.getFavorites("user");
+
     projSvc.getProjects(this.query).subscribe(result => {
       let length = result.results.length;
       for (let i = 0; i < length; i++) {

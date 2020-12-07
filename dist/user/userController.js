@@ -29,6 +29,7 @@ class UserController {
         res.send(req.params);
     }
     getFavorite(req, res) {
+        console.log("test");
         UserController.db.getRecords(UserController.favoritesTable, { email: req.get("email") })
             .then((userRecords) => {
             if (userRecords) {
