@@ -40,8 +40,8 @@ export class HomeComponent implements OnInit {
 
       }
     })
-
   }
+  
   //myForm: FormGroup;
   ngOnInit() {
   }
