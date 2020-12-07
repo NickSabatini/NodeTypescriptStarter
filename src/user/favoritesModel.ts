@@ -2,17 +2,17 @@ export class FavoriteModel {
 
     // does not encrypt password, expects already encrypted password
     public static fromObject = (obj: any): FavoriteModel => {
-        const mdl = new FavoriteModel(obj.email, obj.title);
+        const mdl = new FavoriteModel(obj.email, obj.id);
         return mdl;
     }
-    public id ?= "";
+    public _id ?= "";
     public email = "";
-    public title = "";
+    public id = "";
 
-    public constructor(email: string, title: string) {
+    public constructor(email: string, id: string) {
         this.email = email;
-        this.title = title;
+        this.id = id;
     }
 
-    public toObject = (): any => ({ email: this.email, title: this.title });
+    public toObject = (): any => ({ email: this.email, id: this.id });
 }
