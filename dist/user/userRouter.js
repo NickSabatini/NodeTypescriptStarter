@@ -21,10 +21,11 @@ class UserRouter {
         this.router.post("/users/:userID/streamingServices", this.controller.postStreamingServices);
         this.router.get("/users/:userID/searchHistory", this.controller.getSearchHistory);
         this.router.post("/users/:userID/searchHistory", this.controller.postSearchHistory);
-        this.router.get("/users/:userID/watchList", this.controller.getWatchList);
-        this.router.post("/users/:userID/watchList", this.controller.postWatchList);
-        this.router.get("/users/:userID/suggestionList", this.controller.getSuggestionList);
-        this.router.post("/users/:userID/suggestionList", this.controller.postSuggestionList);
+        this.router.get("/favorites", this.controller.getFavorite);
+        this.router.post("/favorites", this.controller.postFavorite);
+        this.router.delete("/favorites", this.controller.deleteFavorite);
+        // this.router.get("/users/:userID/suggestionList", this.controller.getSuggestionList);
+        // this.router.post("/users/:userID/suggestionList", this.controller.postSuggestionList);
         return this.router;
     }
 }

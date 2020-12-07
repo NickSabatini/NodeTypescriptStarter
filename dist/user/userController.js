@@ -1,5 +1,8 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+const MongoDB_1 = require("../common/MongoDB");
+const config_1 = require("../config");
+const favoritesModel_1 = require("./favoritesModel");
 class UserController {
     getHello(req, res) {
         res.send("Hello World");
@@ -25,11 +28,35 @@ class UserController {
     postSearchHistory(req, res) {
         res.send(req.params);
     }
-    getWatchList(req, res) {
-        res.send("GET watchList placeholder");
+    getFavorite(req, res) {
+        UserController.db.getRecords(UserController.favoritesTable, { email: req.body.email })
+            .then((userRecords) => {
+            if (userRecords) {
+                return res.status(200).send(userRecords);
+            }
+        }).catch((reason) => res.sendStatus(500).end());
     }
-    postWatchList(req, res) {
-        res.send(req.params);
+    postFavorite(req, res) {
+        const user = new favoritesModel_1.FavoriteModel(req.body.email, req.body.title);
+        UserController.db.getOneRecord(UserController.favoritesTable, { email: req.body.email, title: req.body.title })
+            .then((userRecord) => {
+            if (userRecord) {
+                return res.status(400).send({ fn: "postFavorite", status: "failure", data: "Favorite already exists for user" }).end();
+            }
+            UserController.db.addRecord(UserController.favoritesTable, user.toObject()).then((result) => res.send({ fn: "postFavorite", status: "success" }).end())
+                .catch((reason) => res.sendStatus(500).end());
+        }).catch((reason) => res.sendStatus(500).end());
+    }
+    deleteFavorite(req, res) {
+        const user = new favoritesModel_1.FavoriteModel(req.body.email, req.body.title);
+        UserController.db.getOneRecord(UserController.favoritesTable, { email: req.body.email, title: req.body.title })
+            .then((userRecord) => {
+            if (!userRecord) {
+                return res.status(400).send({ fn: "deleteFavorite", status: "failure", data: "Favorite does not exist" }).end();
+            }
+            UserController.db.deleteRecord(UserController.favoritesTable, user.toObject()).then((result) => res.send({ fn: "deleteFavorite", status: "success" }).end())
+                .catch((reason) => res.sendStatus(500).end());
+        }).catch((reson) => res.sendStatus(500).end());
     }
     getSuggestionList(req, res) {
         res.send("GET suggestionList placeholder");
@@ -39,4 +66,6 @@ class UserController {
     }
 }
 exports.UserController = UserController;
+UserController.db = new MongoDB_1.Database(config_1.Config.url, "userdata");
+UserController.favoritesTable = "favorites";
 //# sourceMappingURL=userController.js.map
