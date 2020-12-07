@@ -16,7 +16,7 @@
           <div id="title">{{whole.movie}}</div>
           <div class="overlay">
             <button id="button" (click)="showOverview()">Overview</button>
-            <button type="submit" (click)="addFavorite(whole.ids)">add fav</button>
+            <button id="favorite" (click)="addFavorite(whole.ids)">Add fav</button>
             <div class="services" *ngFor='let servs of whole.Aservices'>
               {{servs}}<br>
             </div>

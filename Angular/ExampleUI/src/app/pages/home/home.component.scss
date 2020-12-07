@@ -88,13 +88,14 @@ ul, li {
    cursor: pointer; /* Add a pointer on hover */
 }
 
-#button {
+#button, #favorite {
    position: relative;
-   top: 10%;
+   top: 2%;
    left: 8%;
    flex: 1;
    margin: 2vh;
-   margin-bottom: 3vh;
+   margin-top: 1vh;
+   margin-bottom: 2vh;
    padding: 1vh 2vh;
    border-radius: 999px;
    border: 5px solid #284cff;
@@ -112,4 +113,10 @@ ul, li {
    &:hover {
      background-position: 500% 100%;
    }
+}
+
+#favorite {
+   top: 0% !important;
+   left: 10% !important;
+   margin-bottom: 0 !important;
 }
