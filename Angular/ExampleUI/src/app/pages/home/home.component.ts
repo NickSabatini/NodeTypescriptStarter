@@ -103,12 +103,12 @@ export class HomeComponent implements OnInit {
     })
 
   }
-  public showDesc() {
-    document.getElementById("description").style.display = "block";
+  public showOverview() {
+    document.getElementById("overview").style.display = "block";
   }
 
-  public hideDesc() {
-    document.getElementById("description").style.display = "none";
+  public hideOverview() {
+    document.getElementById("overview").style.display = "none";
   }
 }
 

@@ -15,13 +15,13 @@
           <img class="images" src={{whole.poster}} alt="No Poster Available" onerror="this.src='default-movie.jpg'">
           <div id="title">{{whole.movie}}</div>
           <div class="overlay">
-            <button id="button" (click)="showDesc()">Description</button>
+            <button id="button" (click)="showOverview()">Overview</button>
             <div class="services" *ngFor='let servs of whole.Aservices'>
               {{servs}}<br>
             </div>
           </div>
         </div>
-        <div id="description" (click)="hideDesc()">
+        <div id="overview" (click)="hideOverview()">
           {{whole.overviews}}<br><br>
         </div>
       </li>

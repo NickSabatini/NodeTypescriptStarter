@@ -70,7 +70,7 @@ ul li {
    font-weight: bold;
 }
 
-#description {
+#overview {
    position: fixed; /* Sit on top of the page content */
    display: none; /* Hidden by default */
    //border: 1vh solid black;
@@ -91,6 +91,7 @@ ul li {
 #button {
    position: relative;
    top: 10%;
+   left: 8%;
    flex: 1;
    margin: 2vh;
    margin-bottom: 3vh;
