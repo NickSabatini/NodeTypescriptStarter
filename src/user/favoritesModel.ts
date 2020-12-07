@@ -5,7 +5,7 @@ export class FavoriteModel {
         const mdl = new FavoriteModel(obj.email, obj.id);
         return mdl;
     }
-    public _id ?= "";
+    public id2 ?= "";
     public email = "";
     public id = "";
 
