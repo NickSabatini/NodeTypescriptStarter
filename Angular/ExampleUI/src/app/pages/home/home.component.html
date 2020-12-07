@@ -12,7 +12,7 @@
     <ul>
       <li *ngFor='let whole of combined'>
         <div class="container">
-          <img class="images" src={{whole.poster}} alt="No Poster Available" onerror="this.src='default-movie.jpg'">
+          <img class="images" src={{whole.poster}} alt="No Poster Available" onerror="this.src='../assets/default-movie.jpg'">
           <div id="title">{{whole.movie}}</div>
           <div class="overlay">
             <button id="button" (click)="showOverview()">Overview</button>
