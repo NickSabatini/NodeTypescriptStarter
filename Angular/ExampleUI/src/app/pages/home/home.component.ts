@@ -30,13 +30,12 @@ export class HomeComponent implements OnInit {
       for (let i = 0; i < length; i++) {
 
         let test = this.findServices(result.results[i].id);
-        console.log(test);
 
         this.movies.push(result.results[i].title);
         this.overviews.push(result.results[i].overview);
         this.posters.push(this.urlStart + result.results[i].poster_path);
 
-        this.combined.push({ movie: result.results[i].title, poster: this.urlStart + result.results[i].poster_path, overviews: result.results[i].overview, ids: result.results[i].id, Aservices: this.StreamingServices })
+        this.combined.push({ movie: result.results[i].title, poster: this.urlStart + result.results[i].poster_path, overviews: result.results[i].overview, ids: result.results[i].id, Aservices: test})
 
       }
     })
@@ -59,6 +58,7 @@ export class HomeComponent implements OnInit {
       }
       catch {
         //console.log("no services");
+        services.push("NO STREAMING SERVICES")
       }
       //console.log(this.StreamingServices);
     })
@@ -75,16 +75,13 @@ export class HomeComponent implements OnInit {
     this.projSvc.getProjects(this.query).subscribe(result => {
       let length = result.results.length;
       for (let i = 0; i < length; i++) {
-        //let Aservices = this.findServices(result.results[i].id);
-        //let maybe = this.findServices(result.results[i].id);
+        
+        let test = this.findServices(result.results[i].id);
 
-        //console.log(this.findServices(result.results[i].id));
-        this.findServices(result.results[i].id);
-        console.log(this.StreamingServices);
         this.movies.push(result.results[i].title);
         this.overviews.push(result.results[i].overview);
         this.posters.push(this.urlStart + result.results[i].poster_path);
-        this.combined.push({ movie: result.results[i].title, poster: this.urlStart + result.results[i].poster_path, overviews: result.results[i].overview, ids: result.results[i].id, Aservices: this.StreamingServices })
+        this.combined.push({ movie: result.results[i].title, poster: this.urlStart + result.results[i].poster_path, overviews: result.results[i].overview, ids: result.results[i].id, Aservices: test})
         //console.log(this.services);
       }
     })
