@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ProjectsService } from 'src/app/services/projects.service';
 
-
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -11,6 +10,7 @@ import { ProjectsService } from 'src/app/services/projects.service';
 
 
 export class HomeComponent implements OnInit {
+  buttonClicked = false;
   myForm = new FormGroup({
     search: new FormControl('')
   });
@@ -128,6 +128,13 @@ export class HomeComponent implements OnInit {
 
   }
 
+  showOverview() {
+    this.buttonClicked = true;
+  }
 
-
+  hideOverview() {
+    this.buttonClicked = false;
+  }
 }
+
+

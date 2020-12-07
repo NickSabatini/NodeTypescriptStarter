@@ -1,33 +1,36 @@
 <!DOCTYPE html>
 <html>
+
 <body>
-<p>home works!</p>
-<form [formGroup]="myForm" (ngSubmit)="onSubmit(myForm.value)">
+  <form [formGroup]="myForm" (ngSubmit)="onSubmit(myForm.value)" class="form">
     <div class="md-form active-pink active-pink-2 mb-3">
-      <input class="form-control" type="search" id="search1"  formControlName="search" mdbInput>
-      <button type="submit">Search</button>
+      <input class="form-control" type="search" placeholder="Enter keywords..." formControlName="search" mdbInput>
+      <button type="submit" class="search">Search</button>
     </div>
   </form>
-<div *ngIf='movies.length>0'>
-<ul>
-    <li *ngFor='let whole of combined'>
-      <div class="container">
-        <img class = "images" src={{whole.poster}} alt="No Poster Available">
-        {{whole.movie}}
-        <div class = "overlay">
-          <div class="text">
-            {{whole.overviews}}<br><br>
-          </div>
-          <button type="submit" (click)="addFavorite(whole.ids)">add fav</button>
-          <div class="text" *ngFor='let servs of whole.Aservices'>
-            {{servs}}<br>
+  <div *ngIf='movies.length>0'>
+    <ul>
+      <li *ngFor='let whole of combined'>
+        <div class="container">
+          <img class="images" src={{whole.poster}} alt="No Poster Available" onerror="this.src='default-movie.jpg'">
+          <div id="title">{{whole.movie}}</div>
+          <div class="overlay">
+            <button id="button" (click)="showOverview()">Overview</button>
+            <button type="submit" (click)="addFavorite(whole.ids)">add fav</button>
+            <div class="services" *ngFor='let servs of whole.Aservices'>
+              {{servs}}<br>
+            </div>
+            <div id="overview" (click)="hideOverview()" [style.display]="buttonClicked ? 'block' : 'none'" *ngIf='overviews'>
+              {{whole.overviews}}<br><br>
+            </div>
           </div>
         </div>
-      </div>
-    </li>
-</ul>
+        
+      </li>
+    </ul>
+  </div>
+  <div *ngIf='movies.length==0'>No movies found</div>
 
-</div>
-<div *ngIf='movies.length==0'>No movies found</div>
 </body>
+
 </html>

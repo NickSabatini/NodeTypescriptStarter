@@ -2,21 +2,38 @@
    display: inline;
    margin: 0;
    padding: 0;
- }
- 
-ul li {
+}
+
+.form {
+   margin: 1vh;
+   padding: 1vh;
+}
+
+.search {
+   margin: 1vh;
+}
+
+ul, li {
    display: inline-block;
    vertical-align: top;
 }
 
-.images{
+.images {
    width: 27vh;
    height: 40vh;
    border-radius: 2vh;
-   //z-index: 2;
- }
+}
 
-.overlay{
+.services {
+   position: relative;
+   top: 7%;
+   right: 1%;
+   text-align: center;
+   color: black;
+   font-family: 'VT323', monospace;
+}
+
+.overlay {
    position: absolute;
    top: 0;
    bottom: 0;
@@ -27,21 +44,72 @@ ul li {
    opacity: 0;
    transition: .5s ease;
    background-color: white;
-   padding: 2vh;
    margin: 2vh;
-   //z-index: 1;
+   padding: 2vh;
+   border-radius: 1.5vh; //2vh;
+   z-index: 1;
 }
 
 .container:hover .overlay {
-   opacity: 0.95;
+   opacity: 0.93;
 }
 
 .container {
    position: relative;
-   padding: 2vh;
    margin: 2vh;
+   padding: 2vh;
    display: inline-block;
    width: 27vh;
+   height: 40vh;
    border-radius: 2vh;
-   /*vertical-align: top;*/
-} 
+}
+
+#title {
+   padding-top: 1vh;
+   font-size: 2vh;
+   font-weight: bold;
+}
+
+#overview {
+   position: fixed; /* Sit on top of the page content */
+   display: none; /* Hidden by default */
+   //border: 1vh solid black;
+   border-radius: 2vh;
+   width: 90%;
+   height: 80%;
+   top: 10%;
+   left: 5%;
+   right: 0%;
+   bottom: 10%;
+   padding: 3vh;
+   background-color: rgba(0,0,0,0.95); /* Black background with opacity */
+   color: white;
+   z-index: 2; /* Specify a stack order in case you're using a different order for other elements */
+   cursor: pointer; /* Add a pointer on hover */
+}
+
+#button {
+   position: relative;
+   top: 10%;
+   left: 8%;
+   flex: 1;
+   margin: 2vh;
+   margin-bottom: 3vh;
+   padding: 1vh 2vh;
+   border-radius: 999px;
+   border: 5px solid #284cff;
+   font-family: 'VT323', monospace;
+   font-size: 2.2vh;
+   text-shadow: 0 3px 5px rgba(#000, 0); //0.25 was old setting
+   white-space: nowrap;
+   color: black;
+   background: transparent;
+   background-image: url(https://web.archive.org/web/20160312084140im_/http://splatoon.nintendo.com/assets/img/nav-bg-fill-blue.png?1443460871);
+   background-repeat: repeat-x;
+   background-position: 0 -100%;
+   transition: 1.2s ease;
+
+   &:hover {
+     background-position: 500% 100%;
+   }
+}
