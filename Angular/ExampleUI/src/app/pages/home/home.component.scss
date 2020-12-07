@@ -49,7 +49,7 @@ ul li {
 }
 
 .container:hover .overlay {
-   opacity: 0.94;
+   opacity: 0.95;
 }
 
 .container {
@@ -58,6 +58,7 @@ ul li {
    padding: 2vh;
    display: inline-block;
    width: 27vh;
+   height: 40vh;
    border-radius: 2vh;
 }
 
@@ -79,7 +80,7 @@ ul li {
    right: 0%;
    bottom: 10%;
    padding: 3vh;
-   background-color: rgba(0,0,0,0.94); /* Black background with opacity */
+   background-color: rgba(0,0,0,0.95); /* Black background with opacity */
    color: white;
    z-index: 2; /* Specify a stack order in case you're using a different order for other elements */
    cursor: pointer; /* Add a pointer on hover */
@@ -87,9 +88,10 @@ ul li {
 
 #button {
    position: relative;
-   top: 7%;
+   top: 12%;
    flex: 1;
    margin: 2vh;
+   margin-bottom: 4vh;
    padding: 1vh 2vh;
    border-radius: 999px;
    border: 5px solid #284cff;
