@@ -17,23 +17,27 @@ export class HomeComponent implements OnInit {
   movies = [];
   overviews = [];
   posters = [];
-  combined  = [];
+  combined = [];
+  StreamingServices = [];
+  clear = [];
   urlStart = "https://image.tmdb.org/t/p/w500/";
   query = "a";
+  
   constructor(private projSvc: ProjectsService) {
-    console.log(this.posters);
-    //this.posters.push("https://image.tmdb.org/t/p/w500/i5xiwdSsrecBvO7mIfAJixeEDSg.jpg");
-    //this.posters.push("https://image.tmdb.org/t/p/w500/i5xiwdSsrecBvO7mIfAJixeEDSg.jpg");
-
-    //this.query = this.myForm.value;
-    //console.log(this.myForm.value);
+   
     projSvc.getProjects(this.query).subscribe(result => {
       let length = result.results.length;
       for (let i = 0; i < length; i++) {
+        
+        this.findServices(result.results[i].id);
+        console.log(this.StreamingServices);
+
         this.movies.push(result.results[i].title);
         this.overviews.push(result.results[i].overview);
         this.posters.push(this.urlStart + result.results[i].poster_path);
-        this.combined.push({movie: result.results[i].title, poster: this.urlStart + result.results[i].poster_path, overviews: result.results[i].overview})
+        
+        this.combined.push({ movie: result.results[i].title, poster: this.urlStart + result.results[i].poster_path, overviews: result.results[i].overview, ids: result.results[i].id, Aservices: this.StreamingServices})
+      
       }
     })
 
@@ -41,6 +45,26 @@ export class HomeComponent implements OnInit {
   //myForm: FormGroup;
   ngOnInit() {
   }
+
+  findServices(data) {
+    this.projSvc.getServices(data).subscribe(Aresult => {
+      this.StreamingServices = [];
+      try{
+        let length = Aresult.results.US.flatrate.length;
+        for (let i = 0; i < length; i++) {
+          let temp = Aresult.results.US.flatrate[i].provider_name;
+          this.StreamingServices.push(temp);
+        }      
+        //return services;
+        //console.log(this.StreamingServices);
+    }
+    catch{
+      console.log("no services");
+    }
+    //console.log(this.StreamingServices);
+  })
+  }
+  
 
   onSubmit(data) {
     this.query = data.search;
@@ -50,18 +74,25 @@ export class HomeComponent implements OnInit {
     this.projSvc.getProjects(this.query).subscribe(result => {
       let length = result.results.length;
       for (let i = 0; i < length; i++) {
+        //let Aservices = this.findServices(result.results[i].id);
+        //let maybe = this.findServices(result.results[i].id);
+        
+        //console.log(this.findServices(result.results[i].id));
+        this.findServices(result.results[i].id);
+        console.log(this.StreamingServices);
         this.movies.push(result.results[i].title);
-        //console.log(this.urlStart + result.results[i].poster_path)
         this.overviews.push(result.results[i].overview);
         this.posters.push(this.urlStart + result.results[i].poster_path);
-        this.combined.push({movie: result.results[i].title, poster: this.urlStart + result.results[i].poster_path, overviews: result.results[i].overview})
+        this.combined.push({ movie: result.results[i].title, poster: this.urlStart + result.results[i].poster_path, overviews: result.results[i].overview, ids: result.results[i].id, Aservices: this.StreamingServices})
+        //console.log(this.services);
       }
     })
-    //console.log(this.movies);
   }
 
+  
 
-  showMovies(){
+  //not used at the moment
+  showMovies() {
     this.movies = [];
     this.projSvc.getProjects(this.query).subscribe(result => {
       let length = result.results.length;
@@ -69,7 +100,7 @@ export class HomeComponent implements OnInit {
         this.movies.push(result.results[i].title);
       }
     })
-    
+
   }
 
 
