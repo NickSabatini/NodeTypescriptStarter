@@ -36,6 +36,13 @@ export class ProjectsService {
     return this.http.get('http://localhost:3000/api/favorites', requestOptions);
   }
 
+  addFavorites(email: string, id: string): void{
+    
+    this.http.post('http://localhost:3000/api/favorites', { email: email, id: id }).subscribe(results => {
+      console.log(results);
+    });
+  }
+
   getDetails(id: any):Observable<any>{
     let one = "https://api.themoviedb.org/3/movie/";
     let two = "?api_key=19c64f4f9f25a75eb15fb7d09a07f1a4&language=en-US";
