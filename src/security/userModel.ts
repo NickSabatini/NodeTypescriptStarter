@@ -20,7 +20,7 @@ export class UserModel {
     // encrypt a string using the bcrypt library
     public static encryptString(inval: string): string {
         try {
-            const salt  = bcrypt.genSaltSync(10);
+            const salt = bcrypt.genSaltSync(10);
             return bcrypt.hashSync(inval, salt);
         } catch (err) {
             return "*";
